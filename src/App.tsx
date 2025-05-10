@@ -5,8 +5,7 @@ import Layout from './Layout'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 
-function App() {
-
+const App = () => {
   return (
     <>
      <Routes>
