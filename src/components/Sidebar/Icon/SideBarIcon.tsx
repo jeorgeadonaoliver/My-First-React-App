@@ -6,12 +6,12 @@ interface SideBarIconProps
     onClick : () => void;
 }
 
-// SideBarIcon Component
 const SideBarIcon = ({ icon, text, isActive, onClick }: SideBarIconProps) => {
   return (
     <div
       onClick={onClick}
-      className={`sidebar-icon group flex flex-col items-center p-3 cursor-pointer transition-all duration-300
+      className={`relative flex flex-col items-center justify-center 
+    h-15 w-20 mt-2 mb-0 mx-auto hover:-translate-y-1 hover:scale-110
         ${isActive ? 'bg-neutral-600 text-white rounded-xl' : 'bg-neutral-800 text-gray-400 hover:bg-neutral-600 hover:text-white rounded-xl'}`}>
       <div className="text-2xl">{icon}</div>
 

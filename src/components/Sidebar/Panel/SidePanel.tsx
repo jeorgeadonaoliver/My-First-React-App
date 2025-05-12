@@ -33,5 +33,4 @@ const SidePanel = ({ activeIndex, text, panelRef }: SidePanelProps ) => {
   );
 };
 
-
 export default SidePanel;

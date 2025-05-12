@@ -4,6 +4,7 @@ import Login from './pages/login/Login'
 import Layout from './Layout'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
+import Employee from './pages/employee/employee'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/layout" element={<Layout />}>
           <Route path="home" element={<Home />} />
           <Route path="profile" element={<Profile/>}/>
+          <Route path="employee" element={<Employee/>}/>
           {/* other routes */}
       </Route>
     </Routes>

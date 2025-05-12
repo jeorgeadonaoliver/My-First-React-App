@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@layer components{
+
+    .gridLayout{
+        @apply grid grid-cols-3 auto-rows-auto gap-y-2 gap-x-2 bg-neutral-900 text-white;
+    }
+
+    .add-button-employee{
+        @apply bg-sky-700 h-15 text-white font-bold py-2 px-4 rounded-full hover:bg-sky-500 transition duration-300 cursor-pointer hover:scale-110;
+    }
+    /* In your global.css or a dedicated CSS file */
+    .overflow-y-auto::-webkit-scrollbar-track {
+    background-color: #f3f4f6; /* Tailwind's gray-100 or a similar light color */
+}
+}

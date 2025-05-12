@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import SideBarImage from './Image/SidebarImage';
 import SideBarIcon from './Icon/SideBarIcon';
 import SidePanel from './Panel/SidePanel';
+import { BiLogOut } from 'react-icons/bi';
 
 interface SidebarItemProps {
     icon: React.ReactNode;
@@ -57,12 +58,17 @@ const SideBar = React.memo(({sidebarItems} : {sidebarItems:SidebarItemProps[]}) 
         <>
             <div
                 ref={sidebarRef}
-                className="fixed top-0 left-0 h-screen w-22 m-0 flex flex-col bg-neutral-800 text-white shadow-lg overflow-y-auto">
+                className="fixed top-0 left-0 h-screen w-22 m-0 flex flex-col items-center bg-neutral-800 text-white shadow-lg overflow-y-auto">
                 <SideBarImage
                     imagePath={randomImage}
                     name="Jeorge"
                     onClick={() => handleItemClick(null, "", '/layout/profile')}
                 />
+                
+                <div className=" relative w-full flex justify-center mt-4 mb-8">
+                     <div className="absolute h-0.5 w-12 bg-white top-1/2 transform -translate-y-1/2"></div>
+                </div>
+                
                 {sidebarItems.map((item) => (
                     <SideBarIcon
                         key={item.text}
@@ -73,7 +79,13 @@ const SideBar = React.memo(({sidebarItems} : {sidebarItems:SidebarItemProps[]}) 
                            if (item.text === "Home") {
                                 setActiveIndex(null);
                                 navigateToPage(item.route || '/layout/home');
-                            } else if (item.route) {
+                            }
+                            else if (item.text === "Employee") {
+                                setActiveIndex(null);
+                                navigateToPage(item.route || '/layout/employee');
+                            }
+                            
+                            else if (item.route) {
                                 handleItemClick(item.index, item.panelTitle);
                                 navigateToPage(item.route);
                             } else {
@@ -82,6 +94,23 @@ const SideBar = React.memo(({sidebarItems} : {sidebarItems:SidebarItemProps[]}) 
                         }}
                     />
                 ))}
+
+
+
+                <div className="flex-col justify-center mt-auto mb-3" >
+                    <div className=" relative w-full flex justify-center">
+                         <div className="absolute h-0.5 w-12 bg-white top-1/2 transform -translate-y-1/2"></div>
+                    </div>
+                    <SideBarIcon
+                        key={"Logout"}
+                        icon={<BiLogOut size="25" />}
+                        text={"Logout"}
+                        isActive={activeIndex === 0}
+                        onClick={() => {
+                            navigateToPage('/login');
+                        }}
+                    />
+                </div>
             </div>
 
             <SidePanel activeIndex={activeIndex} text={{ Title: activePanelTitle }} panelRef={panelRef} />
